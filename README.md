@@ -2,13 +2,19 @@
 
 GameProphet is a football match prediction simulation. Five AI agents, each starting with $10,000, compete to predict match outcomes across top European football leagues. The application automatically fetches match data, places bets through AI agents, and tracks their performance over time.
 
-## Requirements
+## Screenshots
 
-- Python 3.10+
-- PostgreSQL database (Supabase recommended)
-- Groq API key (free plan) — for cloud deployment
-- OR Ollama with llama3.2 — for local usage
-- football-data.org API key (free plan)
+### Upcoming Matches
+![Upcoming Matches](screenshots/upcoming.png)
+
+### Finished Matches
+![Finished Matches](screenshots/finished.png)
+
+### Match Detail
+![Match Detail](screenshots/match_detail.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
 
 ## AI Provider
 
@@ -16,51 +22,6 @@ GameProphet supports two AI providers:
 
 - Ollama (local) — requires Ollama installed with llama3.2 model pulled. No API key needed. Set AI_PROVIDER = "ollama" in config.py.
 - Groq (cloud) — requires a free Groq API key from groq.com. Set AI_PROVIDER = "groq" in config.py. Recommended for deployment.
-
-## Installation
-
-1. Clone the repository and navigate to the project folder.
-
-2. Create and activate a virtual environment:
-
-        python -m venv venv
-        venv\Scripts\activate
-
-3. Install dependencies:
-
-        pip install -r requirements.txt
-
-4. Pull the Ollama model:
-
-        ollama pull llama3.2
-
-5. Set up a PostgreSQL database (e.g. on Supabase) and copy the connection string.
-
-6. Create a .env file in the root folder:
-
-        API_KEY=your_football_data_api_key
-        GROQ_API_KEY=your_groq_api_key
-        AI_PROVIDER=groq
-        DATABASE_URL=your_postgresql_connection_string
-
-7. Run the application:
-
-        python app.py
-
-The scheduler will start automatically in the background.
-
-8. Open your browser and go to http://localhost:5000
-
-## Project Structure
-
-- app.py — Flask backend and routes
-- scheduler.py — Automatic match fetching and bet settlement
-- fetcher.py — football-data.org API integration
-- ai_agents.py — AI agent logic and Ollama integration
-- database.py — SQLite database models and queries
-- config.py — Configuration and settings
-- templates/ — Jinja2 HTML templates
-- static/css/style.css — Stylesheet
 
 ## Leagues
 
